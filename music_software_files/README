@@ -1,0 +1,7 @@
+These files are for MIDI Patchbay and Propellerhead Reason.
+
+Details here:
+
+http://gilesbowkett.blogspot.com/2008/01/drive-propellerhead-reason-with-ruby.html
+
+Set up these files in the appropriate apps and you should be able to generate music pretty much right out the box with the code in the examples directory.
