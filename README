@@ -1,0 +1,8 @@
+Archaeopteryx is a MIDI system for Ruby based on code from Topher Cyll's book "Practical Ruby
+Projects."
+
+Archaeopteryx successfully generates original drum and bass rhythms, synchs original rhythms to
+MP3 playback, and crossfades between existing MP3 tracks.
+
+Archaeopteryx is a Ruby front-end to prosumer music software such as Propellerhead Reason and
+Ableton Live. You need the pro(sumer) stuff to get anything useful out of it. 
