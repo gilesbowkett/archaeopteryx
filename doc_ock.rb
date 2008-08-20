@@ -1,36 +1,17 @@
 require 'lib/archaeopteryx'
 
-class Fader # < InfiniteStream
+class Fader
   attr_accessor :midi_channel, :controller_number
-  # def generating_loop
-  #   generate(109)
-  #   car = 109 
-  #   cdr = 0 
-  #   loop do
-  #     generate(cdr)
-  #     car, cdr = cdr, car 
-  #   end 
-  # end
   def toggle
     [midi_channel, controller_number, self.next]
   end
-  # def value
-  #   @value ||= 100
-  #   case @value
-  #   when 0
-  #     @value = 100
-  #   when 100
-  #     @value = 0
-  #   end
-  #   @value
-  # end
   attr_accessor :value
 end
 
 
 class TapTempo
-  def midi_channel; 0 ; end
-  def controller_number ; 8 ; end
+  def midi_channel; 15 ; end
+  def controller_number ; 7 ; end
   def value ; 127 ; end
 end
 
@@ -44,7 +25,7 @@ class DocOck
                          :logging => attributes[:logging] || false)
     @tap_tempo = TapTempo.new
     @faders = []
-    (0..7).each do |number|
+    (0..3).each do |number|
       @faders[number] = Fader.new
       @faders[number].midi_channel = 0
       @faders[number].controller_number = number
@@ -54,9 +35,8 @@ class DocOck
     generate_beats = L do
       (1..@measures).each do |measure|
         (0..(@beats - 1)).each do |beat|
-          chosen = rand(7)
-          # @midi.send_controller_message(@tap_tempo) if 0 == beat % 2
-          (0..7).each do |number|
+          chosen = rand(4)
+          (0..3).each do |number|
             case number
             when chosen
               @faders[number].value = 100
@@ -80,7 +60,7 @@ class DocOck
   end
 end
 
-DocOck.new(:clock => Clock.new(116),
+DocOck.new(:clock => Clock.new(175),
            :evil_timer_offset_wtf => 0.2).go
 
 

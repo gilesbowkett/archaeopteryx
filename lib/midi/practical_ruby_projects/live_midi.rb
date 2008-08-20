@@ -47,7 +47,7 @@ LOG_PLAYBACK
         
         def send_controller_message(midi_channel, controller_number, value, on_time = @clock.time)
           on_time += @clock.start
-          puts "scheduling for #{on_time}"
+          # puts "scheduling for #{on_time}" if @logging
           @timer.at(on_time) do
             control(midi_channel, controller_number, value)
           end
@@ -93,8 +93,8 @@ LOG_PLAYBACK
         end
         
         def pulse(channel, controller_id, value)
-          puts "sending now: #{Time.now.to_f}"
-          puts "#{[channel, controller_id, value].inspect}"
+          # puts "sending now: #{Time.now.to_f}" if @logging
+          # puts "#{[channel, controller_id, value].inspect}" if @logging
           message(CONTROLLER | channel, controller_id, value)
         end
         alias :control :pulse

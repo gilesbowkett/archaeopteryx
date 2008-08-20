@@ -1,6 +1,6 @@
 require 'lib/archaeopteryx'
 
-
+require 'rubyfringe'
 
 
 
