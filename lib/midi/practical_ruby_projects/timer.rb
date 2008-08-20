@@ -13,6 +13,10 @@ module Archaeopteryx
             end
           end
         end
+        
+        def flush
+          @queue = []
+        end
 
         def at(time, &block)
           time = time.to_f if time.kind_of?(Time)

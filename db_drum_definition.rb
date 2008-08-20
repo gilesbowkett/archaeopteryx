@@ -1,3 +1,5 @@
+$clock.bpm = 5
+
 probabilities = {}
 
 probabilities[:none] = [0.0] * 16

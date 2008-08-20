@@ -6,12 +6,13 @@ module Archaeopteryx
     end
     def reload
       eval(File.read(@file))
+      puts "hey"
     end
     def notes(beat)
-      reload
       []
     end
     def mutate(measure)
+      reload
     end
   end
 end
