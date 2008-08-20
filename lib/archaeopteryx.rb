@@ -15,6 +15,7 @@ alias :L :lambda
    lib/infinite_stream
    lib/infinite_beats
    lib/feigenbaum
+   lib/metacircular_evaluator
 
    lib/midi/note
    lib/midi/clock

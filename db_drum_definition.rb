@@ -1,18 +1,3 @@
-# 0 Drums
-# 1 Pacific Heights
-# 2 Clarendon (dub)
-# 3 Over-reacted
-# 4 System (Matrix/Futurebound)
-# 5 Call Me
-# 6 Hustlin
-# 7 Feeling Blue (piano track)
-# 8 Mermaids
-# 9 Waves Breaking
-
-$lock_live = true
-$live_channels = [0,8]
-$beat_juggle = true
-
 probabilities = {}
 
 probabilities[:none] = [0.0] * 16
