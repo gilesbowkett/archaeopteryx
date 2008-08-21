@@ -11,7 +11,13 @@ $measures = 4
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,
                  :generator => Mix.new(:rhythms => [Rhythm.new(:drumfile => "harmonic_cycle.rb",
-                                                               :mutation => $mutation)]))
+                                                               :mutation => $mutation),
+                                                    Rhythm.new(:drumfile => "xanadu.rb",
+                                                               :mutation => L{|measure| 0 == (measure - 1) % 16}),
+                                                    Rhythm.new(:drumfile => "forest_sounds.rb",
+                                                               :mutation => L{|measure| 0 == (measure - 1) % 16}),
+                                                    Rhythm.new(:drumfile => "ethniq.rb",
+                                                               :mutation => L{|measure| 0 == (measure - 1) % 16})]))
 @loop.go
 
 

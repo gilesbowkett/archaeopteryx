@@ -31,6 +31,7 @@ OCTAVES = {-1 => (0..11), # starting note is C-1
 # chords! this can also happen with scales!
 MINOR_7TH = [0, 2, 6, 9]
 MAJOR_7TH = [0, 4, 7, 11]
+MAJOR_TRIAD = [0,4,7]
 
 MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
 MINOR_SCALE = [0, 2, 3, 5, 7, 8, 10]
