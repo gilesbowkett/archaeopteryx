@@ -36,19 +36,28 @@ MAJOR_SCALE = [0, 2, 4, 5, 7, 9, 11]
 MINOR_SCALE = [0, 2, 3, 5, 7, 8, 10]
 # higher-resolution nomenclature exists but I won't have time to use it
 
-CIRCLE_OF_FIFTHS = %w{C, G, D, A, E, B, F#, C#, G#, D#, A#, F}
+CIRCLE_OF_FIFTHS = %w{C G D A E B F# C# G# D# A# F}
 # relative minor is always x + 3
 # this data structure is of course a ring
 CIRCLE_OF_FOURTHS = CIRCLE_OF_FIFTHS.reverse
 
-[CIRCLE_OF_FIFTHS, CIRCLE_OF_FOURTHS].each do |array|
-  class << array
-    def next
-      @current ||= -1
-      @current += 1
-      @current = 0 if @current >= size
-      self[current]
-    end
+# [CIRCLE_OF_FIFTHS, CIRCLE_OF_FOURTHS].each do |array|
+#   class << array
+#     def next
+#       @current ||= -1
+#       @current += 1
+#       @current = 0 if @current >= size
+#       self[@current]
+#     end
+#   end
+# end
+# this makes them into ring structures. I may need to do this for all these arrays.
+
+class Array
+  def next
+    @current ||= -1
+    @current += 1
+    @current = 0 if @current >= size
+    self[@current]
   end
 end
-# this makes them into ring structures. I may need to do this for all these arrays.

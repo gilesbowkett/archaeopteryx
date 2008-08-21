@@ -2,7 +2,7 @@ module Archaeopteryx
   class Arkx
     def initialize(attributes)
       @generator = attributes[:generator]
-      @measures = attributes[:measures] || 32
+      # @measures = attributes[:measures] || 32
       @beats = attributes[:beats] || 16
       @evil_timer_offset_wtf = attributes[:evil_timer_offset_wtf]
       @midi = LiveMIDI.new(:clock => @clock = attributes[:clock], # confusion!!!!!!!!!!
@@ -13,7 +13,7 @@ module Archaeopteryx
     end
     def go
       generate_beats = L do
-        (1..@measures).each do |measure|
+        (1..$measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
             play @generator.notes(beat)

@@ -12,6 +12,8 @@ alias :L :lambda
    lib/mix
    lib/bassline
    
+   lib/pitches
+   
    lib/infinite_stream
    lib/infinite_beats
    lib/feigenbaum
