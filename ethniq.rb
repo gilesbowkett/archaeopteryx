@@ -22,11 +22,13 @@ def note(midi_note_number, channel)
 end
 
 notes = []
-(36..45).each do |midi_note_number|
-  notes << Drum.new(:note => note(midi_note_number, 4),
-                    :when => L{|beat| false},
-                    :number_generator => L{rand},
-                    :next => L{|queue| queue[rand(queue.size)]},
-                    :probabilities => probabilities[midi_note_number] || probabilities[:none])
+if rand > 0.75
+  (36..45).each do |midi_note_number|
+    notes << Drum.new(:note => note(midi_note_number, 4),
+                      :when => L{|beat| false},
+                      :number_generator => L{rand},
+                      :next => L{|queue| queue[rand(queue.size)]},
+                      :probabilities => probabilities[midi_note_number] || probabilities[:none])
+  end
 end
 notes

@@ -2,7 +2,7 @@
 
 require 'lib/archaeopteryx'
 
-$clock = Clock.new(60)
+$clock = Clock.new(30)
 $mutation = L{|measure| 0 == (measure - 1) % 2}
 $measures = 4
 
