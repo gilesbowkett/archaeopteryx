@@ -5,12 +5,12 @@ iv = L{|key| puts "IV" ; key + 5}
 v = L{|key| puts "V" ; key + 7}
 
 @chord_progression ||= [reload, i, iv, v] + ([i, i, iv, v] * 15)
-@chord_progression ||= [reload, i, i, i, iv, iv, v, v] + ([i, i, i, i, iv, iv, v, v] * 3)
-@chord_progression ||= [v, v, i, reload]
+# @chord_progression ||= [reload, i, i, i, iv, iv, v, v] + ([i, i, i, i, iv, iv, v, v] * 3)
+# @chord_progression ||= [v, v, i, reload]
 # 
 # @key ||= OCTAVES[2].to_a[SCALE[[CIRCLE_OF_FIFTHS,CIRCLE_OF_FOURTHS][rand(2)].next]]
 @root = @chord_progression.next[@key]
-
+@chord = MAJOR_7TH
 
 # choice of pad channel
 
@@ -20,9 +20,9 @@ pad_channel = [2,2,2,2,2,2,2,2,
                10,10,10,10,10,10,
                9,
                11,11,11,11,11][rand(29)] # 11 is unassigned - sometimes it's silent
-pad_channel = 10
+pad_channel = 11
 
-
+bass_channel = 1
 
 
 
@@ -42,20 +42,20 @@ def midi_note(midi_note_number, channel, duration)
 end
 
 notes = []
-bass = Drum.new(:note => midi_note(@root - 24, 1, 0.5),
+bass = Drum.new(:note => midi_note(@root - 24, bass_channel, 0.5),
                 :when => L{|beat| false},
                 :next => L{|queue| queue[queue.size - 1]},
                 :number_generator => L{rand},
                 :probabilities => [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0])
 notes << bass
-bass5th = Drum.new(:note => midi_note((@root - 24) + 5, 1, 0.5),
+bass5th = Drum.new(:note => midi_note((@root - 24) + 5, bass_channel, 0.5),
                    :when => L{|beat| false},
                    :next => L{|queue| queue[queue.size - 1]},
                    :number_generator => L{rand},
                    :probabilities => [0.0, 0.0, 0.0, 0.0, 0.15, 0.0, 0.0, 0.0, 0.25, 0.0, 0.0, 0.0, 0.0, 0.0, 0.15, 0.0])
 notes << bass5th
 
-MAJOR_7TH.each do |number|
+@chord.each do |number|
   notes << Drum.new(:note => midi_note(@root + number, pad_channel, 1.00), # hack!
                     :when => L{|beat| false},
                     :next => L{|queue| queue[queue.size - 1]},
@@ -78,7 +78,7 @@ def temple_bells
   # (0..11).each {|note| boost[note] = 0.0}
   # MAJOR_SCALE.each {|note| boost[note] += 0.05}
   # root = MAJOR_SCALE[0] ; boost[root] += 0.2
-  MAJOR_7TH.each {|note| boost[note] = 0.1}
+  @chord.each {|note| boost[note] = 0.1}
   
   rhythm = [0.0, 0.0, 0.5, 0.0,
             0.25, 0.0, 0.0, 0.0,
