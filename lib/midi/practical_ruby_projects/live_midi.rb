@@ -25,6 +25,7 @@ module Archaeopteryx
         def initialize(options)
           @clock = options[:clock]
           @logging = options[:logging]
+          @midi_destination = options[:midi_destination]
           if @logging
             puts <<LOG_PLAYBACK
 require 'lib/archaeopteryx'
@@ -64,7 +65,7 @@ LOG_PLAYBACK
 
           number_of_destinations = CoreMIDI.mIDIGetNumberOfDestinations()
           raise NoMIDIDestinations if number_of_destinations < 1
-          @destination = CoreMIDI.mIDIGetDestination(0)
+          @destination = CoreMIDI.mIDIGetDestination(@midi_destination)
         end
 
         def close
