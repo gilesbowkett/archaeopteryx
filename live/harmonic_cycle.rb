@@ -8,19 +8,19 @@ v = L{|key| puts "V" ; key + 7}
 # @chord_progression ||= [reload, i, i, i, iv, iv, v, v] + ([i, i, i, i, iv, iv, v, v] * 3)
 # @chord_progression ||= [v, v, i, reload]
 # 
-# @key ||= OCTAVES[2].to_a[SCALE[[CIRCLE_OF_FIFTHS,CIRCLE_OF_FOURTHS][rand(2)].next]]
+@key ||= OCTAVES[2].to_a[SCALE[[CIRCLE_OF_FIFTHS,CIRCLE_OF_FOURTHS][rand(2)].next]]
 @root = @chord_progression.next[@key]
 @chord = MAJOR_7TH
 
 # choice of pad channel
 
 # channel 9 is the easter egg!
-pad_channel = [2,2,2,2,2,2,2,2,
-               7,7,7,7,7,7,7,7,7,
-               10,10,10,10,10,10,
-               9,
-               11,11,11,11,11][rand(29)] # 11 is unassigned - sometimes it's silent
-pad_channel = 11
+# pad_channel = [2,2,2,2,2,2,2,2,
+#                7,7,7,7,7,7,7,7,7,
+#                10,10,10,10,10,10,
+#                9,
+#                11,11,11,11,11][rand(29)] # 11 is unassigned - sometimes it's silent
+pad_channel = 7
 
 bass_channel = 1
 
