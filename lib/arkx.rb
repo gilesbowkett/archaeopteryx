@@ -17,12 +17,13 @@ module Archaeopteryx
       generate_beats = L do
         start = @clock.time
         @generator.rhythms.each do |rhythm|
-          @clock.time = start
+          rhythm.clock.time = start
           (1..4).each do |measure|
             rhythm.mutate(measure)
             (0..(rhythm.beats - 1)).each do |beat|
               play rhythm.notes(beat)
-              @clock.tick
+              rhythm.clock.tick
+              @clock.time = rhythm.clock.time
             end
           end
           @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf, &generate_beats)

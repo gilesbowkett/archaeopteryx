@@ -15,7 +15,6 @@ module Archaeopteryx
       end
       def tick
         @time += @interval
-        @time
       end
     end
   end
