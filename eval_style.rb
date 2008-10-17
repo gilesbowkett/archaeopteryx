@@ -3,6 +3,7 @@ require 'lib/archaeopteryx'
 $clock = Clock.new(170)
 $mutation = L{|measure| 0 == (measure - 1) % 2}
 $measures = 4
+$beats = 16
 
 @loop = Arkx.new(:clock => $clock, # rename Arkx to Loop
                  :measures => $measures,

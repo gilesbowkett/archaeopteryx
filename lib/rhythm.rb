@@ -1,8 +1,10 @@
 module Archaeopteryx
   class Rhythm
+    attr_accessor :beats
     def initialize(attributes)
       # @mutation = attributes[:mutation]
       @drumfile = attributes[:drumfile]
+      @beats = attributes[:beats] || 16
       reload
     end
     def reload
