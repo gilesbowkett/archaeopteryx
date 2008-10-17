@@ -1,5 +1,6 @@
 module Archaeopteryx
   class Mix
+    attr_accessor :rhythms
     def initialize(attributes)
       @rhythms = attributes[:rhythms]
     end
@@ -10,13 +11,6 @@ module Archaeopteryx
       end
       notes.flatten
     end
-    # Haskell style! Lisp style?! Recursion style!
-    # def notes(beat)
-    #   notes = []
-    #   @rhythms.each do |rhythm|
-    #     notes << rhythm.notes(beat)
-    #   end
-    # end
     def mutate(measure)
       @rhythms.each {|rhythm| rhythm.mutate(measure)}
     end

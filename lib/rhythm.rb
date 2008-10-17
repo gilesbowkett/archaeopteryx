@@ -2,7 +2,7 @@ module Archaeopteryx
   class Rhythm
     attr_accessor :beats
     def initialize(attributes)
-      # @mutation = attributes[:mutation]
+      @mutation = attributes[:mutation]
       @drumfile = attributes[:drumfile]
       @beats = attributes[:beats] || 16
       reload
@@ -19,7 +19,7 @@ module Archaeopteryx
       drums
     end
     def mutate(measure)
-      if $mutation[measure]
+      if @mutation[measure]
         reload # reloading can kill mutations!
         @drums.each {|drum| drum.mutate}
       end
