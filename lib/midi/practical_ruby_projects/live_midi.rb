@@ -25,7 +25,7 @@ module Archaeopteryx
         def initialize(options)
           @clock = options[:clock]
           @logging = options[:logging]
-          @midi_destination = options[:midi_destination]
+          @midi_destination = options[:midi_destination] || 0
           if @logging
             puts <<LOG_PLAYBACK
 require 'lib/archaeopteryx'
