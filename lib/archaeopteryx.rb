@@ -26,5 +26,4 @@ alias :L :lambda
    end
 
 [Archaeopteryx,
- Archaeopteryx::Midi,
- Archaeopteryx::Midi::PracticalRubyProjects].each {|constant| include constant}
+ Archaeopteryx::Midi].each {|constant| include constant}
