@@ -16,6 +16,9 @@ module Archaeopteryx
       end
       drums
     end
+    def messages(beat)
+      []
+    end
     def mutate(measure)
       if $mutation[measure]
         reload # reloading can kill mutations!

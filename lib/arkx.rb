@@ -9,15 +9,21 @@ module Archaeopteryx
       @midi = LiveMIDI.new(:clock => @clock = attributes[:clock], # confusion!!!!!!!!!!
                            :logging => attributes[:logging] || false,
                            :midi_destination => midi_destination)
+      @tap_tempo = TapTempo.new
     end
     def play(music)
       music.each {|note| @midi.play(note)}
+    end
+    def send(messages)
+      messages.each {|message| @midi.send(message)}
     end
     def go
       generate_beats = L do
         (1..$measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
+            send [@tap_tempo]
+            send @generator.messages(beat)
             play @generator.notes(beat)
             @clock.tick
           end

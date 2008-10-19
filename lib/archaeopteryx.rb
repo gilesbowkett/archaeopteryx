@@ -14,6 +14,8 @@ alias :L :lambda
    
    lib/pitches
    
+   lib/live_hacks
+   
    lib/infinite_stream
    lib/infinite_beats
    lib/feigenbaum
