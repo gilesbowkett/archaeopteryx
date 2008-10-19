@@ -1,6 +1,7 @@
 alias :L :lambda
 
 %w{lib/core_ext/struct
+   lib/core_ext/array
    
    lib/arkx
    lib/drum
@@ -15,6 +16,8 @@ alias :L :lambda
    lib/pitches
    
    lib/live_hacks
+   lib/exclusive_mix
+   lib/clip
    
    lib/infinite_stream
    lib/infinite_beats

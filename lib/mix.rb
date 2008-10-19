@@ -10,13 +10,13 @@ module Archaeopteryx
       end
       notes.flatten
     end
-    # Haskell style! Lisp style?! Recursion style!
-    # def notes(beat)
-    #   notes = []
-    #   @rhythms.each do |rhythm|
-    #     notes << rhythm.notes(beat)
-    #   end
-    # end
+    def messages(beat) # obviously these should be refactored to inject()s
+      messages = []
+      @rhythms.each do |rhythm|
+        messages << rhythm.messages(beat)
+      end
+      messages.flatten
+    end
     def mutate(measure)
       @rhythms.each {|rhythm| rhythm.mutate(measure)}
     end

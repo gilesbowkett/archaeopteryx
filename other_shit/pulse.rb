@@ -5,16 +5,41 @@ require 'lib/archaeopteryx'
 @live_midi = LiveMIDI.new(:logging => false,
                           :clock => Clock.new(167))
 
+channel = ARGV[0].to_i
+controller = ARGV[1].to_i
+
+@live_midi.pulse(channel, controller, 0) # channel, controller, value
+sleep 1
+@live_midi.pulse(channel, controller, 100)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# the dank dark pit of comment cruft
+
 # tap tempo
 # @live_midi.pulse(15, 7, 0) # channel, controller, value
 # sleep 1
 # @live_midi.pulse(15, 7, 100)
 
 # doc ock
-@live_midi.pulse(0, 9, 0)
-sleep 1
-@live_midi.pulse(0, 9, 100)
-
+# @live_midi.pulse(0, 9, 0)
+# sleep 1
+# @live_midi.pulse(0, 9, 100)
+# 
 
 # so, I need to schedule these motions, just like I would schedule a MIDI note; and also I need to
 # apply tweens, to make the motion fluid. I need to support the variety of different control styles

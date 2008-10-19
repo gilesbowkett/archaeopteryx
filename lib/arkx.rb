@@ -22,9 +22,9 @@ module Archaeopteryx
         (1..$measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
-            send [@tap_tempo]
+            @midi.send(@tap_tempo) if [0, 4, 8, 12].include? beat
             send @generator.messages(beat)
-            play @generator.notes(beat)
+            # play @generator.notes(beat)
             @clock.tick
           end
         end

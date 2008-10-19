@@ -1,5 +1,4 @@
-class Fader
-  attr_accessor :midi_channel, :controller_number, :value
+class Message < Struct.new(:midi_channel, :controller_number, :value)
 end
 
 class TapTempo
