@@ -21,12 +21,7 @@ alias :L :lambda
 
    lib/midi/note
    lib/midi/clock
-
-   lib/midi/practical_ruby_projects/no_midi_destinations
-   lib/midi/practical_ruby_projects/core_midi
-   lib/midi/practical_ruby_projects/core_foundation
-   lib/midi/practical_ruby_projects/live_midi
-   lib/midi/practical_ruby_projects/timer}.each do |lib|
+   lib/midi/live_midi}.each do |lib|
      require File.join(File.dirname(__FILE__), '../', lib)
    end
 
