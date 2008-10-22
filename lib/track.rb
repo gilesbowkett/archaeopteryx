@@ -1,5 +1,5 @@
 module Archaeopteryx
-  class ExclusiveMix < Mix
+  class Track < Mix
     def messages(beat)
       @rhythms.random.messages(beat)
     end

@@ -16,7 +16,7 @@ alias :L :lambda
    lib/pitches
    
    lib/live_hacks
-   lib/exclusive_mix
+   lib/track
    lib/clip
    
    lib/infinite_stream

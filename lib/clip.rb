@@ -1,7 +1,7 @@
 module Archaeopteryx
   class Clip
     def initialize(attributes)
-      @message = Message.create(attributes.merge(:value => 127))
+      @message = Message.create(attributes.merge(:midi_channel => 0, :value => 127))
     end
     def notes(beat)
       []
