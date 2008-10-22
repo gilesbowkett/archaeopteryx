@@ -74,6 +74,10 @@ LOG_PLAYBACK
         def close
           CoreMIDI.mIDIClientDispose(@client)
         end
+        
+        def clear
+          @timer.flush
+        end
 
         def message(*args)
           format = "C" * args.size

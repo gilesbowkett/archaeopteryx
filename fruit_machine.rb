@@ -43,7 +43,8 @@ if gets
   @loop.midi.clear
 
   stop = Message.create(:midi_channel => 0, :controller_number => 11, :value => 127)
-  @loop.midi.pulse(stop.midi_channel, stop.controller_number, stop.value)
+  @loop.midi.pulse(stop.midi_channel, stop.controller_number, stop.value) # once to stop
+  @loop.midi.pulse(stop.midi_channel, stop.controller_number, stop.value) # once to zero the measures counter
 
   reset = Message.create(:midi_channel => 0, :controller_number => 12, :value => 127)
   @loop.midi.pulse(reset.midi_channel, reset.controller_number, reset.value)
