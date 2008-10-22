@@ -1,7 +1,8 @@
 module Archaeopteryx
   class Track < Mix
-    def messages(beat)
-      @rhythms.random.messages(beat)
+    def messages(measure)
+      @current = @rhythms.random
+      @current.messages(measure)
     end
   end
 end

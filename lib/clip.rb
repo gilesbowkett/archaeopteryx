@@ -3,10 +3,10 @@ module Archaeopteryx
     def initialize(attributes)
       @message = Message.create(attributes.merge(:midi_channel => 0, :value => 127))
     end
-    def notes(beat)
+    def notes(measure)
       []
     end
-    def messages(beat)
+    def messages(measure)
       [@message]
     end
     def mutate(measure)

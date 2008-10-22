@@ -51,7 +51,7 @@ LOG_PLAYBACK
         end
         def send_controller_message(midi_channel, controller_number, value, on_time = @clock.time)
           on_time += @clock.start
-          # puts "scheduling for #{on_time}" if @logging
+          puts "scheduling #{controller_number} for #{on_time}" if @logging
           @timer.at(on_time) do
             control(midi_channel, controller_number, value)
           end
