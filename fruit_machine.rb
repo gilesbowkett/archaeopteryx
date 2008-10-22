@@ -38,14 +38,8 @@ system = Track.new(:rhythms => [db_intro,
                  :generator => Mix.new(:rhythms => [fruit_machine, system]))
 @loop.go
 
-# this A) makes the shit stay running til it's ready B) sends stop and clip reset
+# this A) makes the shit stay running til it's ready B) sends stop midi message
 if gets
   @loop.midi.clear
-
-  stop = Message.create(:midi_channel => 0, :controller_number => 11, :value => 127)
-  @loop.midi.pulse(stop.midi_channel, stop.controller_number, stop.value) # once to stop
-  @loop.midi.pulse(stop.midi_channel, stop.controller_number, stop.value) # once to zero the measures counter
-
-  reset = Message.create(:midi_channel => 0, :controller_number => 12, :value => 127)
-  @loop.midi.pulse(reset.midi_channel, reset.controller_number, reset.value)
+  @loop.midi.pulse(0, 11, 127)
 end
