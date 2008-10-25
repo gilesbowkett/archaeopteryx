@@ -10,10 +10,10 @@ module Archaeopteryx
       end
       notes.flatten
     end
-    def messages(beat) # obviously these should be refactored to inject()s
+    def messages(measure) # obviously these should be refactored to inject()s
       messages = []
       @rhythms.each do |rhythm|
-        messages << rhythm.messages(beat)
+        messages << rhythm.messages(measure)
       end
       messages.flatten
     end

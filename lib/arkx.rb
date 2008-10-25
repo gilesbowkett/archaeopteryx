@@ -18,13 +18,16 @@ module Archaeopteryx
     def send(messages)
       messages.each {|message| @midi.send(message)}
     end
+    def choose_next_clip(measure)
+      send @generator.messages(measure)
+    end
     def go
       generate_beats = L do
         (1..$measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
             @midi.send(@tap_tempo) if [0, 4, 8, 12].include? beat
-            send @generator.messages(measure) if beat == @beats - 2
+            choose_next_clip(measure) if beat == @beats - 2
             play @generator.notes(beat)
             @clock.tick
           end
