@@ -19,10 +19,9 @@ module Archaeopteryx
       messages.each {|message| @midi.send(message)}
     end
     def choose_next_clip(measure)
-      return unless @generator.is_a? Mix
       @generator.rhythms.each do |rhythm|
         if rhythm.current.complete?
-          rhythm.choose_new
+          rhythm.new_clip
           send rhythm.messages(measure)
         end
       end
@@ -32,8 +31,8 @@ module Archaeopteryx
         (1..$measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
-            @midi.send(@tap_tempo) if [0, 4, 8, 12].include? beat
-            choose_next_clip(measure) if beat == @beats - 2
+            @midi.send(@tap_tempo) if [0, 4, 8, 12].include?(beat) && @generator.is_a?(Mix)
+            choose_next_clip(measure) if beat == @beats - 2 && @generator.is_a?(Mix)
             play @generator.notes(beat)
             @clock.tick
           end

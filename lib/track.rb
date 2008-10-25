@@ -10,7 +10,6 @@ module Archaeopteryx
       @current = @rhythms.random
     end
     def messages(measure)
-      new_clip
       @current.messages(measure)
     end
   end
