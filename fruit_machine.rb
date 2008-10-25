@@ -44,7 +44,7 @@ system =                      Track.new(:rhythms => [db_intro,
                                                      pads_only])
 
 
-@loop = Arkx.new(:clock => $clock, # rename Arkx to Loop
+@loop = Loop.new(:clock => $clock,
                  :measures => $measures,
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,

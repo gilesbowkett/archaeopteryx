@@ -3,7 +3,7 @@ alias :L :lambda
 %w{lib/core_ext/struct
    lib/core_ext/array
    
-   lib/arkx
+   lib/loop
    lib/drum
    lib/fx
    lib/rhythm

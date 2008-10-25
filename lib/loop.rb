@@ -1,5 +1,5 @@
 module Archaeopteryx
-  class Arkx
+  class Loop
     attr_reader :midi
     def initialize(attributes)
       @generator = attributes[:generator]
