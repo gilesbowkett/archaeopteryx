@@ -16,6 +16,9 @@ module Archaeopteryx
     end
     def complete?
       [true, false][rand(2)]
+      # current_measure == final_measure
+      # BUT! these need to be relative measures in this Clip, not absolute measures in the overall Loop
+      # possible that Loop should be called Engine or some crazy shit
     end
   end
 end
