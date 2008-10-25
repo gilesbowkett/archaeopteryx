@@ -19,6 +19,7 @@ module Archaeopteryx
       messages.each {|message| @midi.send(message)}
     end
     def choose_next_clip(measure)
+      return unless @generator.is_a? Mix
       @generator.rhythms.each do |rhythm|
         if rhythm.current.complete?
           send rhythm.messages(measure)
