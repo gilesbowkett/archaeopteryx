@@ -25,7 +25,7 @@ module Archaeopteryx
           (0..(@beats - 1)).each do |beat|
             @midi.send(@tap_tempo) if [0, 4, 8, 12].include? beat
             send @generator.messages(measure) if beat == @beats - 2
-            # play @generator.notes(beat)
+            play @generator.notes(beat)
             @clock.tick
           end
         end

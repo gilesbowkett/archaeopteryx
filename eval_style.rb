@@ -11,3 +11,4 @@ $measures = 4
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => $mutation))
 @loop.go
+gets

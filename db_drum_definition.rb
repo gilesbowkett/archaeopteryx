@@ -1,6 +1,6 @@
 $clock.bpm = 175
 $mutation = L{|measure| 0 == (measure - 1) % 2}
-$measures = 4
+$measures = 2
 
 probabilities = {}
 
@@ -45,10 +45,10 @@ notes = []
 (36..45).each do |midi_note_number|
   notes << Drum.new(:note => note(midi_note_number),
                     :when => L{|beat| false},
-                    # :number_generator => L{0.8},
-                    # :next => L{|queue| queue[queue.size - 1]},
-                    :number_generator => L{rand},
-                    :next => L{|queue| queue[rand(queue.size)]},
+                    :number_generator => L{1.0},
+                    :next => L{|queue| queue[queue.size - 1]},
+                    # :number_generator => L{rand},
+                    # :next => L{|queue| queue[rand(queue.size)]},
                     :probabilities => probabilities[midi_note_number] || probabilities[:none])
 end
 notes
