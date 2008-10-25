@@ -22,6 +22,7 @@ module Archaeopteryx
       return unless @generator.is_a? Mix
       @generator.rhythms.each do |rhythm|
         if rhythm.current.complete?
+          rhythm.choose_new
           send rhythm.messages(measure)
         end
       end
