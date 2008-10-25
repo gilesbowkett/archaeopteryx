@@ -1,5 +1,6 @@
 module Archaeopteryx
   class Mix
+    attr_accessor :rhythms
     def initialize(attributes)
       @rhythms = attributes[:rhythms]
     end

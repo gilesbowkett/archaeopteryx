@@ -13,6 +13,9 @@ module Archaeopteryx
     end
     def mutate(measure)
     end
+    def complete?
+      [true, false][rand(2)]
+    end
   end
 end
 
