@@ -27,7 +27,7 @@ module Archaeopteryx
       generate_beats[]
       if RUBY_PLATFORM.include? 'win32' # gets block thread on Windows 10000 is arbitrary
         puts 'Press CTRL-C to stop'
-        (1..10000).each {sleep(1)} 
+        sleep(10000)
       else
         gets
       end
