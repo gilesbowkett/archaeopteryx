@@ -43,6 +43,8 @@ end
 
 static = L{1.0}
 dynamic = L{rand}
+check_every_drum = L{|queue| queue[queue.size - 1]}
+check_random_drums = L{|queue| queue[rand(queue.size)]}
 
 notes = []
 (36..45).each do |midi_note_number|
@@ -50,8 +52,8 @@ notes = []
                     :when => L{|beat| false},
                     # :number_generator => static,
                     :number_generator => dynamic,
-                    # :next => L{|queue| queue[queue.size - 1]},
-                    :next => L{|queue| queue[rand(queue.size)]},
+                    # :next => check_every_drum,
+                    :next => check_random_drums,
                     :probabilities => probabilities[midi_note_number] || probabilities[:none])
 end
 notes
