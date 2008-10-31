@@ -4,9 +4,6 @@ $measures = 4
 
 probabilities = {}
 
-probabilities[:none] = [0.0] * 16
-probabilities[:all] = [1.0] * 16
-
 # hip-hop
 # probabilities[36] = [1.0, 0.0, 0.5, 0.25, 0.0, 0.6, 0.0, 0.9, 0.9, 0.0, 1.0, 0.0, 0.5, 0.0, 0.3, 0.0]
 # probabilities[37] = [0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3, 0.0, 1.0, 0.0, 0.0, 0.0]
@@ -25,15 +22,6 @@ probabilities[43] = [0.9] * 16
 probabilities[44] = [0.65] * 16
 probabilities[45] = [0.85, 0.35] * 8
 
-# 0 DO NOT USE!
-# 1 distorted Roni Size
-# 2 Roni Size
-# 3 idm
-# 4 Trent Reznor
-# [2,5][rand(2)] hip-hop
-# 6 Zed
-# ((1..6).to_a)[rand(6)] madness
-
 def note(midi_note_number)
   Note.create(:channel => 2,
               :number => midi_note_number,
@@ -41,14 +29,19 @@ def note(midi_note_number)
               :velocity => 100 + rand(27))
 end
 
+static = L{1.0}
+dynamic = L{rand}
+check_every_drum = L{|queue| queue[queue.size - 1]}
+check_random_drums = L{|queue| queue[rand(queue.size)]}
+
 notes = []
 (36..45).each do |midi_note_number|
   notes << Drum.new(:note => note(midi_note_number),
                     :when => L{|beat| false},
-                    # :number_generator => L{0.8},
-                    # :next => L{|queue| queue[queue.size - 1]},
-                    :number_generator => L{rand},
-                    :next => L{|queue| queue[rand(queue.size)]},
-                    :probabilities => probabilities[midi_note_number] || probabilities[:none])
+                    # :number_generator => static,
+                    :number_generator => dynamic,
+                    # :next => check_every_drum,
+                    :next => check_random_drums,
+                    :probabilities => probabilities[midi_note_number])
 end
 notes
