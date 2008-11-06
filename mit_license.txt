@@ -1,4 +1,6 @@
 Copyright 2008 Giles Bowkett
 Portions Copyright 2006, 2007 Topher Cyll
 Portions Copyright 2008 Michael Fellinger
-# Portions Copyright 2001 Jim Weirich
+Portions Copyright 2008 Ben Bleything
+Portions Copyright 2008 Tom Lieber
+Portions Copyright 2001 Jim Weirich
