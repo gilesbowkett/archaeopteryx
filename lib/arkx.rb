@@ -25,7 +25,7 @@ module Archaeopteryx
         @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf, &generate_beats)
       end
       generate_beats[]
-      if RUBY_PLATFORM.include? 'win32' # gets block thread on Windows 10000 is arbitrary
+      if Platform::IMPL == :mswin
         puts 'Press CTRL-C to stop'
         sleep(10000)
       else

@@ -3,12 +3,13 @@ module Archaeopteryx
     def initialize(attributes)
       # @mutation = attributes[:mutation]
       @drumfile = attributes[:drumfile]
-      @flash = attributes[:flash] || (RUBY_PLATFORM.include? 'darwin')
       reload
     end
+    def flash_screen
+      puts "\a" if Platform::IMPL == :macosx
+    end
     def reload
-      # flash the screen ; only valid on my box and similarly configured machines!
-      puts "\a"  if @flash                    
+      flash_screen
       @drums = eval(File.read(@drumfile))
     end
     def notes(beat)
@@ -26,5 +27,3 @@ module Archaeopteryx
     end
   end
 end
-
-# probably rename this to make it drum-specific

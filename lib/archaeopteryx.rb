@@ -1,5 +1,9 @@
 alias :L :lambda
 
+%w{rubygems platform}.each do |lib|
+  require lib
+end
+
 %w{lib/core_ext/struct
    
    lib/arkx
