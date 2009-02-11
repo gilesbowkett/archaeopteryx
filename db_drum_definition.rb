@@ -46,9 +46,9 @@ notes = []
   notes << Drum.new(:note => note(midi_note_number),
                     :when => L{|beat| false},
                     # :number_generator => L{1.0},
-                    :next => L{|queue| queue[queue.size - 1]},
                     :number_generator => L{rand},
-                    # :next => L{|queue| queue[rand(queue.size)]},
+                    # :next => L{|queue| queue[queue.size - 1]},
+                    :next => L{|queue| queue[rand(queue.size)]},
                     :probabilities => probabilities[midi_note_number] || probabilities[:none])
 end
 notes
