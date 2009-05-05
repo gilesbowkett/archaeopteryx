@@ -22,6 +22,8 @@ describe FileMIDI do
     it "adds notes to itself" do
       2.times {@midi.play(@create_note[])}
       @midi.instance_variable_get("@track").events.size.should == 2
+      @midi.instance_variable_get("@track").events.collect(&:class).should == [Note, Note]
+      # note: I don't understand how this spec passes - I don't think I'm requiring ActiveSupport anywhere
     end
     it "has a MIDI sequence and track" do
       @midi.instance_variable_get("@sequence").should be_an_instance_of MIDI::Sequence
