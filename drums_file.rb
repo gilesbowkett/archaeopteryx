@@ -1,12 +1,12 @@
 require 'lib/archaeopteryx'
 
-@clock = Clock.new(170)
-
-@loop = Loop.new(:clock => @clock,
-                 :measures => 4,
+@loop = Loop.new(:measures => 4,
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,
-                 :midi => FileMIDI.new(@clock),
+                 :clock => Clock.new(@tempo = 170),
+                 :midi => FileMIDI.new(:tempo => @tempo,
+                                       :filename => "db_drums.midi",
+                                       :name => "d&b drums"),
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => L{|measure| 0 == (measure - 1) % 2}))
 @loop.go
