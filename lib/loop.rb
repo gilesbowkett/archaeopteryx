@@ -3,7 +3,7 @@ module Archaeopteryx
     attr_reader :midi
     def initialize(attributes)
       @generator = attributes[:generator]
-      # @measures = attributes[:measures] || 32
+      @measures = attributes[:measures] || 32
       @beats = attributes[:beats] || 16
       midi_destination = attributes[:midi_destination] || 0
       @evil_timer_offset_wtf = attributes[:evil_timer_offset_wtf]
@@ -28,11 +28,9 @@ module Archaeopteryx
     end
     def go
       generate_beats = L do
-        (1..$measures).each do |measure|
+        (1..@measures).each do |measure|
           @generator.mutate(measure)
           (0..(@beats - 1)).each do |beat|
-            @midi.send(@tap_tempo) if [0, 4, 8, 12].include?(beat) && @generator.is_a?(Mix)
-            choose_next_clip(measure) if beat == @beats - 2 && @generator.is_a?(Mix)
             play @generator.notes(beat)
             @clock.tick
           end
