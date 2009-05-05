@@ -12,17 +12,6 @@ module Archaeopteryx
     def play(music)
       music.each {|note| @midi.play(note)}
     end
-    def send(messages)
-      messages.each {|message| @midi.send(message)}
-    end
-    def choose_next_clip(measure)
-      @generator.rhythms.each do |rhythm|
-        if rhythm.current.complete?
-          rhythm.new_clip
-          send rhythm.messages(measure)
-        end
-      end
-    end
     def go
       generate_beats = L do
         (1..@measures).each do |measure|
