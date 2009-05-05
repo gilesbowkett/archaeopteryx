@@ -11,7 +11,7 @@ describe FileMIDI do
       L{FileMIDI.new(:filename => "foo.midi").play(Note.new)}.should_not raise_error
     end
   end
-  describe "creating MIDI files" do
+  describe "things that are kinda convoluted because of integrating the midilib gem" do
     before(:each) do
       @midi = FileMIDI.new(:filename => "foo.midi")
       @create_note = L{Note.create(:channel => 2,
@@ -38,5 +38,7 @@ describe FileMIDI do
       @midi = FileMIDI.new(:filename => "foo.midi",
                            :name => "fuzzy ballistics")
     end
+  end
+  describe "creating MIDI files" do
   end
 end
