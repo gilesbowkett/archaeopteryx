@@ -5,12 +5,9 @@ module Archaeopteryx
       @generator = attributes[:generator]
       @measures = attributes[:measures] || 32
       @beats = attributes[:beats] || 16
-      midi_destination = attributes[:midi_destination] || 0
       @evil_timer_offset_wtf = attributes[:evil_timer_offset_wtf]
-      @midi = LiveMIDI.new(:clock => @clock = attributes[:clock], # confusion!!!!!!!!!!
-                           :logging => attributes[:logging] || false,
-                           :midi_destination => midi_destination)
-      @tap_tempo = TapTempo.new
+      @clock = attributes[:clock] # lame, DRY
+      @midi = attributes[:midi] # lame, DRY (heh)
     end
     def play(music)
       music.each {|note| @midi.play(note)}
