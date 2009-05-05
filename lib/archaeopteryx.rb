@@ -15,6 +15,8 @@ alias :L :lambda
    lib/midi/note
    lib/midi/clock
 
+   lib/midi/file_output/file_midi
+
    lib/midi/practical_ruby_projects/no_midi_destinations
    lib/midi/practical_ruby_projects/core_midi
    lib/midi/practical_ruby_projects/core_foundation
