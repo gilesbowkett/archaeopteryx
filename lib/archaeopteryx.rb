@@ -24,7 +24,7 @@ alias :L :lambda
    lib/midi/practical_ruby_projects/core_foundation
    lib/midi/practical_ruby_projects/live_midi
    lib/midi/practical_ruby_projects/timer}.each do |lib|
-     require File.join(File.dirname(__FILE__), '../', lib)
+     require File.expand_path(File.dirname(__FILE__)) + "/../#{lib}"
    end
 
 [Archaeopteryx,
