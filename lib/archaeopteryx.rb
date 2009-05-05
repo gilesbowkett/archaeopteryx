@@ -1,5 +1,7 @@
 alias :L :lambda
 
+%w{rubygems midilib/sequence midilib/consts}.each {|lib| require lib}
+
 %w{lib/core_ext/struct
    lib/core_ext/array
    

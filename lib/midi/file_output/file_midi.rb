@@ -2,8 +2,6 @@
 # need new, clearer names, but the nonexistent abstract superclass is just a class which takes options
 # for args and has a method called play() which takes a note argument.
 
-require 'midilib/sequence'
-require 'midilib/consts'
 include MIDI
 
 class FileMIDI
