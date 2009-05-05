@@ -4,16 +4,22 @@
 
 require 'midilib/sequence'
 require 'midilib/consts'
+include MIDI
 
 class FileMIDI
   attr_accessor :filename,
                 :events
-  def initialize(filename)
-    @filename = filename
+                # :tempo
+                # :name
+  def initialize(options)
+    raise :hell unless options.is_a? Hash
+    @filename = options[:filename]
     @events = []
     
     @sequence = MIDI::Sequence.new
     @sequence.tracks << (@track = MIDI::Track.new(@sequence))
+    # @track.events << Tempo.new(Tempo.bpm_to_mpq(238))
+    # @track.events << MetaEvent.new(META_SEQ_NAME, 'Serial')
   end
   def play(note)
     @events << note
