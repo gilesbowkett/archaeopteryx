@@ -9,8 +9,6 @@ include MIDI
 class FileMIDI
   attr_accessor :filename,
                 :events
-                # :tempo
-                # :name
   def initialize(options)
     raise :hell unless options.is_a? Hash
     @filename = options[:filename]
@@ -18,8 +16,8 @@ class FileMIDI
     
     @sequence = MIDI::Sequence.new
     @sequence.tracks << (@track = MIDI::Track.new(@sequence))
-    # @track.events << Tempo.new(Tempo.bpm_to_mpq(238))
-    # @track.events << MetaEvent.new(META_SEQ_NAME, 'Serial')
+    @track.events << Tempo.new(Tempo.bpm_to_mpq(options[:tempo])) if options[:tempo]
+    @track.events << MetaEvent.new(META_SEQ_NAME, options[:name]) if options[:name]
   end
   def play(note)
     @events << note
