@@ -21,7 +21,7 @@ describe FileMIDI do
     end
     it "adds notes to itself" do
       2.times {@midi.play(@create_note[])}
-      @midi.events.size.should == 2
+      @midi.instance_variable_get("@track").events.size.should == 2
     end
     it "has a MIDI sequence and track" do
       @midi.instance_variable_get("@sequence").should be_an_instance_of MIDI::Sequence

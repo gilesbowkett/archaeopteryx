@@ -5,8 +5,7 @@
 include MIDI
 
 class FileMIDI
-  attr_accessor :filename,
-                :events
+  attr_accessor :filename
   def initialize(options)
     raise :hell unless options.is_a? Hash
     @filename = options[:filename]
@@ -18,7 +17,7 @@ class FileMIDI
     @track.events << MetaEvent.new(META_SEQ_NAME, options[:name]) if options[:name]
   end
   def play(note)
-    @events << note
+    @track.events << note
   end
 end
 
