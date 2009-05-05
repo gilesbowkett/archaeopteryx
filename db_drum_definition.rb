@@ -1,7 +1,3 @@
-$clock.bpm = 175
-$mutation = L{|measure| 0 == (measure - 1) % 2}
-$measures = 2
-
 probabilities = {}
 
 probabilities[:none] = [0.0] * 16
