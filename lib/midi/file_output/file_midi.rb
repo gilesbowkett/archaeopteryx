@@ -40,7 +40,7 @@ class FileMIDI
   end
   def write
     File.open(@filename, 'wb') do |file|
-    	@sequence.write(file)
+      @sequence.write(file)
     end
   end
 end
