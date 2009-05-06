@@ -33,10 +33,15 @@ class FileMIDI
                                      0) # this number here should carry an offset representing the
                                      # amount of time since the last message in this stream. it's still
                                      # not clear to me how to handle simultaneous notes, however.
-    @track.events << NoteOffEvent.new(note.channel,
-                                     note.number,
-                                     note.velocity,
-                                     @sequence.note_to_delta("16th")) # yeah, well, whatever
+    # @track.events << NoteOffEvent.new(note.channel,
+    #                                  note.number,
+    #                                  note.velocity,
+    #                                  @sequence.note_to_delta("16th")) # yeah, well, whatever
+  end
+  def write
+    File.open(@filename, 'wb') do |file|
+    	@sequence.write(file)
+    end
   end
 end
 
