@@ -2,12 +2,9 @@ module Archaeopteryx
   class Loop
     attr_reader :midi
     def initialize(attributes)
-      @generator = attributes[:generator]
-      @measures = attributes[:measures] || 32
-      @beats = attributes[:beats] || 16
-      @evil_timer_offset_wtf = attributes[:evil_timer_offset_wtf]
-      @clock = attributes[:clock] # lame, DRY
-      @midi = attributes[:midi] # lame, DRY (heh)
+      %w{generator measures beats clock midi evil_timer_offset_wtf}.each do |option|
+        eval("@#{option} = attributes[:#{option}]")
+      end
     end
     def play(music)
       music.each {|note| @midi.play(note)}

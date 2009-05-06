@@ -4,6 +4,7 @@ require 'lib/archaeopteryx'
 
 @loop = Loop.new(:clock => @clock,
                  :measures => 4,
+                 :beats => 16,
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,
                  :midi => LiveMIDI.new(:clock => @clock, # meh

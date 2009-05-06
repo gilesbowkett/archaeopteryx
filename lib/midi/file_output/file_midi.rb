@@ -4,6 +4,8 @@
 
 include MIDI
 
+# christ this should probably live in some kind of module or something
+
 class FileMIDI
   attr_accessor :filename
   def initialize(options)
@@ -21,6 +23,7 @@ class FileMIDI
     @track.events << ProgramChange.new(0, 1, 0)
   end
   def play(note)
+    # http://github.com/jvoorhis/music.rb/blob/5cf79915dda155d4e8348750d731739c85ac1e60/lib/music/smf_writer.rb
     @track.events << NoteOnEvent.new(note.channel,
                                      note.number,
                                      note.velocity,
