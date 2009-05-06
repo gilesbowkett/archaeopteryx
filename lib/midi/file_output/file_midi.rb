@@ -15,9 +15,22 @@ class FileMIDI
     @sequence.tracks << (@track = MIDI::Track.new(@sequence))
     @track.events << Tempo.new(Tempo.bpm_to_mpq(options[:tempo])) if options[:tempo]
     @track.events << MetaEvent.new(META_SEQ_NAME, options[:name]) if options[:name]
+    
+    # I'm not sure if this is actually necessary (?)
+    @track.events << Controller.new(0, CC_VOLUME, 127)
+    @track.events << ProgramChange.new(0, 1, 0)
   end
   def play(note)
-    @track.events << note
+    @track.events << NoteOnEvent.new(note.channel,
+                                     note.number,
+                                     note.velocity,
+                                     0) # this number here should carry an offset representing the
+                                     # amount of time since the last message in this stream. it's still
+                                     # not clear to me how to handle simultaneous notes, however.
+    @track.events << NoteOffEvent.new(note.channel,
+                                     note.number,
+                                     note.velocity,
+                                     @sequence.note_to_delta("16th")) # yeah, well, whatever
   end
 end
 
