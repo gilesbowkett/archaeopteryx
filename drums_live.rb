@@ -12,5 +12,5 @@ require 'lib/archaeopteryx'
                                        :midi_destination => 0),
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => L{|measure| 0 == (measure - 1) % 2}))
-@loop.go
+@loop.generate_beats
 gets

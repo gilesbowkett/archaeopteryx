@@ -9,5 +9,5 @@ require 'lib/archaeopteryx'
                                        :name => "d&b drums"),
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => L{|measure| 0 == (measure - 1) % 2}))
-@loop.go
+@loop.generate_beats
 gets

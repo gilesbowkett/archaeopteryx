@@ -22,7 +22,6 @@ module Archaeopteryx
       @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf,
                      &(L{generate_beats}))
     end
-    alias :go :generate_beats
     def play(music)
       music.each {|note| @midi.play(note)}
     end
