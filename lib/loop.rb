@@ -7,7 +7,8 @@ module Archaeopteryx
          beats
          clock
          midi
-         evil_timer_offset_wtf}.each do |option|
+         evil_timer_offset_wtf
+         infinite}.each do |option|
         eval("@#{option} = attributes[:#{option}]")
       end
     end
@@ -19,8 +20,10 @@ module Archaeopteryx
           @clock.tick
         end
       end
-      @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf,
-                     &(L{generate_beats}))
+      if @infinite
+        @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf,
+                       &(L{generate_beats}))
+      end
     end
     def play(music)
       music.each {|note| @midi.play(note)}
