@@ -4,7 +4,6 @@ require 'lib/archaeopteryx'
                  :beats => 16,
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,
-                 :infinite => false,
                  :clock => Clock.new(@tempo = 170),
                  :midi => (@midi = FileMIDI.new(:tempo => @tempo,
                                                 :filename => "db_drums.midi",

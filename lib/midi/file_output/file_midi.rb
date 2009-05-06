@@ -22,6 +22,9 @@ class FileMIDI
     @track.events << Controller.new(0, CC_VOLUME, 127)
     @track.events << ProgramChange.new(0, 1, 0)
   end
+  def infinite?
+    false
+  end
   def play(note)
     # http://github.com/jvoorhis/music.rb/blob/5cf79915dda155d4e8348750d731739c85ac1e60/lib/music/smf_writer.rb
     @track.events << NoteOnEvent.new(note.channel,

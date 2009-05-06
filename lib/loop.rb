@@ -20,7 +20,7 @@ module Archaeopteryx
           @clock.tick
         end
       end
-      if @infinite
+      if @midi.infinite?
         @midi.timer.at((@clock.start + @clock.time) - @evil_timer_offset_wtf,
                        &(L{generate_beats}))
       end

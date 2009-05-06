@@ -18,6 +18,10 @@ module Archaeopteryx
         PC = 0xC0 # program change, I think; not actually useable in Propellerhead Reason v3
         CONTROLLER = 0xB0 # arbitrary controller message
 
+        def infinite?
+          true
+        end
+
         def to_code
           "LiveMIDI.new(:clock => @clock = attributes[:clock], :logging => false)"
         end
