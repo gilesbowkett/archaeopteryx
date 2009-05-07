@@ -1,7 +1,7 @@
 # get singleton from std lib
 module Archaeopteryx
   module Midi
-    class Clock # < Singleton
+    class Clock
       attr_reader :time, :interval, :start
       def initialize(bpm)
        # assumes 16-step step sequencer, 4/4 beat, etc.
