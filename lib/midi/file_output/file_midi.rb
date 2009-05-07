@@ -11,6 +11,7 @@ class FileMIDI
   def initialize(options)
     raise :hell unless options.is_a? Hash
     @filename = options[:filename]
+    @clock = options[:clock]
     @events = []
     
     @sequence = MIDI::Sequence.new
@@ -25,18 +26,15 @@ class FileMIDI
   def infinite?
     false
   end
+  def midilib_delta
+    # figuring this shit out was an epic fucking nightmare and to be honest I still have no idea why it works
+    ((@sequence.note_to_delta("16th") / @clock.interval) * @clock.time).to_i
+  end
   def play(note)
-    # http://github.com/jvoorhis/music.rb/blob/5cf79915dda155d4e8348750d731739c85ac1e60/lib/music/smf_writer.rb
-    @track.events << NoteOnEvent.new(note.channel,
-                                     note.number,
-                                     note.velocity,
-                                     0) # this number here should carry an offset representing the
-                                     # amount of time since the last message in this stream. it's still
-                                     # not clear to me how to handle simultaneous notes, however.
-    # @track.events << NoteOffEvent.new(note.channel,
-    #                                  note.number,
-    #                                  note.velocity,
-    #                                  @sequence.note_to_delta("16th")) # yeah, well, whatever
+    @track.merge [NoteOnEvent.new(note.channel,
+                                  note.number,
+                                  note.velocity,
+                                  midilib_delta)]
   end
   def write
     File.open(@filename, 'wb') do |file|
@@ -44,7 +42,3 @@ class FileMIDI
     end
   end
 end
-
-# I think what this has to do is have a ticker. because it expects to tick, and you're using predefined
-# intervals. so if you've got a ticker, you just have to check if it's ticked, or something. actually I
-# have no idea - I don't know how midilib tracks time.
