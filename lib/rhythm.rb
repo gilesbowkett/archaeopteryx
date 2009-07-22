@@ -10,11 +10,9 @@ module Archaeopteryx
       @drums = eval(File.read(@drumfile))
     end
     def notes(beat)
-      drums = []
-      @drums.each do |drum|
-        drums << drum.note if drum.play? beat
-      end
-      drums
+      (@drums.collect do |drum|
+        drum.note if drum.play? beat
+      end).compact
     end
     def messages(beat)
       []
