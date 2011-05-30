@@ -8,7 +8,7 @@ require 'lib/archaeopteryx'
                  :logging => false,
                  :evil_timer_offset_wtf => 0.2,
                  :midi => LiveMIDI.new(:clock => @clock, # meh
-                                       :logging => false,
+                                       :logging => true,
                                        :midi_destination => 0),
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => L{|measure| 0 == (measure - 1) % 2}))

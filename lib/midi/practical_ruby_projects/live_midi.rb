@@ -105,8 +105,8 @@ LOG_PLAYBACK
         end
         
         def pulse(channel, controller_id, value)
-          # puts "sending now: #{Time.now.to_f}" if @logging
-          # puts "#{[channel, controller_id, value].inspect}" if @logging
+          puts "sending now: #{Time.now.to_f}" if @logging
+          puts "#{[channel, controller_id, value].inspect}" if @logging
           message(CONTROLLER | channel, controller_id, value)
         end
         alias :control :pulse
