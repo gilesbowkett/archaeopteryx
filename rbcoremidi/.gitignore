@@ -1,0 +1,3 @@
+build/
+*.xcodeproj/cypher.*
+.DS_Store

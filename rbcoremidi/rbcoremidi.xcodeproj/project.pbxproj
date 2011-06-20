@@ -1,0 +1,203 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D72C0BC0B84E2BB002C6A25 /* rbcoremidi.c in Sources */ = {isa = PBXBuildFile; fileRef = 32BAE0B30371A71500C91783 /* rbcoremidi.c */; };
+		4D72C0BD0B84E2C0002C6A25 /* libruby.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D85FD710B84DF0F00CA65C8 /* libruby.dylib */; };
+		DC790F710E2E9E220094D9F8 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC790F700E2E9E220094D9F8 /* CoreMIDI.framework */; };
+		DC790F750E2E9E3F0094D9F8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC790F740E2E9E3F0094D9F8 /* CoreServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		32BAE0B30371A71500C91783 /* rbcoremidi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = rbcoremidi.c; sourceTree = "<group>"; };
+		4D72C0B50B84E26A002C6A25 /* rbcoremidi.bundle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = rbcoremidi.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D85FD710B84DF0F00CA65C8 /* libruby.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libruby.dylib; path = /usr/lib/libruby.dylib; sourceTree = "<absolute>"; };
+		DC790F700E2E9E220094D9F8 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = /System/Library/Frameworks/CoreMIDI.framework; sourceTree = "<absolute>"; };
+		DC790F740E2E9E3F0094D9F8 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		DC790FCE0E2F801C0094D9F8 /* rbcoremidi.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = rbcoremidi.rb; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4D72C0B30B84E26A002C6A25 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D72C0BD0B84E2C0002C6A25 /* libruby.dylib in Frameworks */,
+				DC790F710E2E9E220094D9F8 /* CoreMIDI.framework in Frameworks */,
+				DC790F750E2E9E3F0094D9F8 /* CoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* rbcoremidi */ = {
+			isa = PBXGroup;
+			children = (
+				DC790FCE0E2F801C0094D9F8 /* rbcoremidi.rb */,
+				DC790F740E2E9E3F0094D9F8 /* CoreServices.framework */,
+				DC790F700E2E9E220094D9F8 /* CoreMIDI.framework */,
+				08FB77ADFE841716C02AAC07 /* Source */,
+				089C1671FE841209C02AAC07 /* External Libraries */,
+				19C28FB4FE9D528D11CA2CBB /* Products */,
+			);
+			name = rbcoremidi;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4D85FD710B84DF0F00CA65C8 /* libruby.dylib */,
+			);
+			name = "External Libraries";
+			sourceTree = "<group>";
+		};
+		08FB77ADFE841716C02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				32BAE0B30371A71500C91783 /* rbcoremidi.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		19C28FB4FE9D528D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4D72C0B50B84E26A002C6A25 /* rbcoremidi.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4D72C0B40B84E26A002C6A25 /* rbcoremidi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4D72C0B80B84E26D002C6A25 /* Build configuration list for PBXNativeTarget "rbcoremidi" */;
+			buildPhases = (
+				4D72C0B20B84E26A002C6A25 /* Sources */,
+				4D72C0B30B84E26A002C6A25 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = rbcoremidi;
+			productName = Untitled;
+			productReference = 4D72C0B50B84E26A002C6A25 /* rbcoremidi.bundle */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "rbcoremidi" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* rbcoremidi */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4D72C0B40B84E26A002C6A25 /* rbcoremidi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4D72C0B20B84E26A002C6A25 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D72C0BC0B84E2BB002C6A25 /* rbcoremidi.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4D72C0B90B84E26D002C6A25 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				EXECUTABLE_EXTENSION = bundle;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = "/usr/lib/ruby/site_ruby/1.8/universal-darwin9.0/";
+				PREBINDING = NO;
+				PRODUCT_NAME = rbcoremidi;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		4D72C0BA0B84E26D002C6A25 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EXECUTABLE_EXTENSION = bundle;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = "/usr/lib/ruby/site_ruby/1.8/universal-darwin9.0/";
+				PREBINDING = NO;
+				PRODUCT_NAME = rbcoremidi;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		4FADC23808B4156C00ABE55E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = "/usr/lib/ruby/1.8/universal-darwin9.0/";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		4FADC23908B4156C00ABE55E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "/usr/lib/ruby/1.8/universal-darwin9.0/";
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4D72C0B80B84E26D002C6A25 /* Build configuration list for PBXNativeTarget "rbcoremidi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D72C0B90B84E26D002C6A25 /* Debug */,
+				4D72C0BA0B84E26D002C6A25 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FADC23708B4156C00ABE55E /* Build configuration list for PBXProject "rbcoremidi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FADC23808B4156C00ABE55E /* Debug */,
+				4FADC23908B4156C00ABE55E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}

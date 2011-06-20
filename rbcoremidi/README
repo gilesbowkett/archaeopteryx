@@ -1,0 +1,20 @@
+Provide easy access to CoreMIDI for Ruby.
+
+Please note that this is a work in progress. The code isn't tested and for all I know, 
+it sets your house on fire, steals your car and runs over your dog and/or cat. So proceed 
+with caution.
+
+= Installation
+
+  ruby extconf.rb
+  make
+  ruby coremidi.rb # Should exit with no errors
+
+If installation fails:
+
+  # Open rbcoremidi.xcodeproj in XCode and compile it
+  cp build/Releases/rbcoremidi.bundle .
+  /usr/bin/ruby coremidi.rb
+
+Note that if installation fails, you can only use the Ruby built into Leopard (/usr/bin/ruby).
+
