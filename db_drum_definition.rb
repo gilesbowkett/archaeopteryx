@@ -1,3 +1,7 @@
+require 'redis'
+redis = Redis.new
+redis.set "current_probability_level", "0.9"
+
 probabilities = {}
 
 probabilities[:none] = [0.0] * 16
@@ -31,7 +35,7 @@ probabilities[45] = [0.85, 0.35] * 8
 # ((1..6).to_a)[rand(6)] madness
 
 def note(midi_note_number)
-  Note.create(:channel => rand(7),
+  Note.create(:channel => 0,
               :number => midi_note_number,
               :duration => 0.25,
               :velocity => 100 + rand(27))
@@ -41,7 +45,7 @@ notes = []
 (36..45).each do |midi_note_number|
   notes << Drum.new(:note => note(midi_note_number),
                     :when => L{|beat| false},
-                    :number_generator => L{0.9},
+                    :number_generator => L{redis.get("current_probability_level").to_f},
                     # :number_generator => L{rand},
                     :next => L{|queue| queue[queue.size - 1]},
                     # :next => L{|queue| queue[rand(queue.size)]},
