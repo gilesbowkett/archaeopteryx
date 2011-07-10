@@ -9,6 +9,7 @@ module CoreMIDI
   extern "void * MIDIGetDestination(int)"
   extern "int MIDIOutputPortCreate(void *, void *, void *)"
   extern "void * MIDIPacketListInit(void *)"
-  extern "void * MIDIPacketListAdd(void *, int, void *, int, int, int, void *)"
+  # http://groups.google.com/group/ruby-midi/browse_thread/thread/85de6ea9373c57a4
+  extern "void * MIDIPacketListAdd(void *, int, void *, int, int, void*)"
   extern "int MIDISend(void *, void *, void *)"
 end

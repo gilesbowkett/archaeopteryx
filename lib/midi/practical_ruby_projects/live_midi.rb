@@ -88,7 +88,8 @@ LOG_PLAYBACK
           bytes = args.pack(format).to_ptr
           packet_list = DL.malloc(256)
           packet_ptr = CoreMIDI.mIDIPacketListInit(packet_list)
-          packet_ptr = CoreMIDI.mIDIPacketListAdd(packet_list, 256, packet_ptr, 0, 0, args.size, bytes)
+          # http://groups.google.com/group/ruby-midi/browse_thread/thread/85de6ea9373c57a4
+          packet_ptr = CoreMIDI.mIDIPacketListAdd(packet_list, 256, packet_ptr, 0, args.size, bytes)
           CoreMIDI.mIDISend(@outport, @destination, packet_list)
         end
 
