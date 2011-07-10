@@ -1,6 +1,6 @@
 require 'lib/archaeopteryx'
 
-@clock = Clock.new(170)
+@clock = Clock.new(140)
 
 @loop = Loop.new(:clock => @clock,
                  :measures => 4,
@@ -9,7 +9,7 @@ require 'lib/archaeopteryx'
                  :evil_timer_offset_wtf => 0.2,
                  :midi => LiveMIDI.new(:clock => @clock, # meh
                                        :logging => false,
-                                       :midi_destination => 0),
+                                       :midi_destination => 1),
                  :generator => Rhythm.new(:drumfile => "db_drum_definition.rb",
                                           :mutation => L{|measure| 0 == (measure - 1) % 2}))
 @loop.generate_beats
